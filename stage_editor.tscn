@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://c6k1bvf2dv5t0"]
+
+[node name="EditorWindow" type="Window"]
+title = "Stage Editor"
+initial_position = 1
+size = Vector2i(350, 800)
+visible = false
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Stage" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Puppet" type="VBoxContainer" parent="TabContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Puppet"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Puppet/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="RichTextLabel" parent="TabContainer/Puppet/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "text"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Puppet/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Puppet/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="RichTextLabel" parent="TabContainer/Puppet/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+text = "text"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Puppet/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Puppet/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="RichTextLabel" parent="TabContainer/Puppet/MarginContainer/HBoxContainer3"]
+layout_mode = 2
+text = "text"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Puppet/MarginContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TabContainer/Puppet/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="RichTextLabel" parent="TabContainer/Puppet/MarginContainer/HBoxContainer4"]
+layout_mode = 2
+text = "text"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Puppet/MarginContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 0

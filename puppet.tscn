@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://cuq345mphy3es"]
+
+[ext_resource type="Script" path="res://puppet_controller.gd" id="1_se3vs"]
+[ext_resource type="Texture2D" uid="uid://b4mb0whmol2jt" path="res://assets/idle.png" id="2_yho3w"]
+
+[sub_resource type="Curve" id="Curve_wbieh"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ai0kx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wb45i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wqd26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8i2g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v44r0"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvrky"]
+
+[node name="PuppetController" type="CharacterBody2D"]
+script = ExtResource("1_se3vs")
+sprite_scale = 0.35
+bounce_curve = SubResource("Curve_wbieh")
+
+[node name="PuppetSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_yho3w")
+
+[node name="GrabBox" type="Button" parent="PuppetSprite"]
+layout_direction = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -730.0
+offset_top = -800.0
+offset_right = -730.0
+offset_bottom = -800.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ai0kx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wb45i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wqd26")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h8i2g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v44r0")
+keep_pressed_outside = true
+metadata/_edit_use_anchors_ = true
+
+[node name="PuppetAnimator" type="AnimationPlayer" parent="PuppetSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_rvrky")
+}
+
+[connection signal="button_down" from="PuppetSprite/GrabBox" to="." method="_on_grabbed"]
+[connection signal="button_up" from="PuppetSprite/GrabBox" to="." method="_on_ungrabbed"]

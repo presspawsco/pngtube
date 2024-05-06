@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://3i0l65x2vwj4"]
+
+[ext_resource type="PackedScene" uid="uid://cuq345mphy3es" path="res://puppet.tscn" id="1_glqqh"]
+[ext_resource type="PackedScene" uid="uid://c6k1bvf2dv5t0" path="res://stage_editor.tscn" id="2_e04pd"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_h8vca"]
+
+[node name="StageManager" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PuppetController" parent="CanvasLayer" instance=ExtResource("1_glqqh")]
+sprite_scale = 0.4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_h8vca")
+autoplay = true
+bus = &"Mic Input"
+
+[node name="EditorWindow" parent="." instance=ExtResource("2_e04pd")]
