@@ -43,3 +43,12 @@ enabled=PackedStringArray("res://addons/twitcher/plugin.cfg")
 
 renderer/rendering_method="mobile"
 viewport/transparent_background=true
+
+[twitch]
+
+auth/broadcaster_id="645209921"
+auth/client_id="9l6wd6iaxwv8utr3dhvbkqabqdrtmh"
+auth/scopes/chat=0
+auth/scopes/channel=2097664
+eventsub/channel_channel_points_custom_reward_redemption_add/subscribed=true
+eventsub/channel_channel_points_custom_reward_redemption_add/broadcaster_user_id="645209921"

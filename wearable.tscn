@@ -1,17 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr8ajvq6nr74c"]
+[gd_scene load_steps=3 format=3 uid="uid://dr8ajvq6nr74c"]
 
 [ext_resource type="Texture2D" uid="uid://cqjhnipwv8jfx" path="res://assets/hat.png" id="1_sfgwp"]
-[ext_resource type="Script" path="res://addons/twitcher/eventsub/twitch_event_listener.gd" id="2_iag31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b07up"]
 
-[node name="Node2D" type="RigidBody2D"]
+[node name="Wearable" type="RigidBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_sfgwp")
-
-[node name="TwitchEventListener" type="Node" parent="."]
-script = ExtResource("2_iag31")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_b07up")

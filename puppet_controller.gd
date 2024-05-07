@@ -79,7 +79,7 @@ func _physics_process(delta):
 func _process(delta):
 	idx = AudioServer.get_bus_index("Mic Input")
 	power = AudioServer.get_bus_peak_volume_left_db(idx, 0)
-	print(power)
+	#print(power)
 	if power >= mic_threshold_talk and power < mic_threshold_yell:
 		threshold_pass_talk()
 	elif power >= mic_threshold_yell:

@@ -1,20 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://3i0l65x2vwj4"]
+[gd_scene load_steps=7 format=3 uid="uid://3i0l65x2vwj4"]
 
+[ext_resource type="Script" path="res://stage_manager.gd" id="1_c4qkm"]
 [ext_resource type="PackedScene" uid="uid://cuq345mphy3es" path="res://puppet.tscn" id="1_glqqh"]
 [ext_resource type="PackedScene" uid="uid://c6k1bvf2dv5t0" path="res://stage_editor.tscn" id="2_e04pd"]
+[ext_resource type="PackedScene" uid="uid://dr8ajvq6nr74c" path="res://wearable.tscn" id="4_e6cxb"]
+[ext_resource type="Script" path="res://addons/twitcher/eventsub/twitch_event_listener.gd" id="5_3npsg"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_h8vca"]
 
 [node name="StageManager" type="Node2D"]
+script = ExtResource("1_c4qkm")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PuppetController" parent="CanvasLayer" instance=ExtResource("1_glqqh")]
+[node name="PuppetController" parent="." instance=ExtResource("1_glqqh")]
 sprite_scale = 0.4
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Microphone" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMicrophone_h8vca")
 autoplay = true
 bus = &"Mic Input"
 
 [node name="EditorWindow" parent="." instance=ExtResource("2_e04pd")]
+
+[node name="Node2D" parent="." instance=ExtResource("4_e6cxb")]
+
+[node name="WearableListener" type="Node" parent="."]
+script = ExtResource("5_3npsg")
+subscription = 26
+
+[connection signal="received" from="WearableListener" to="." method="_on_wearable_listener_received"]
